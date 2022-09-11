@@ -305,7 +305,7 @@ class BasicPredefinedGenerator(PredefinedGeneratorBase):
 
         # get tau array for measurement ticks
         tau_array = tau_start + np.arange(num_of_points) * tau_step
-        tau_pspacing_start = self.tau_2_pulse_spacing(tau_start)
+        tau_pspacing_start = float(self.tau_2_pulse_spacing(tau_start))
 
         # create the elements
         waiting_element = self._get_idle_element(length=self.wait_time,
@@ -466,7 +466,7 @@ class BasicPredefinedGenerator(PredefinedGeneratorBase):
 
         # get tau array for measurement ticks
         tau_array = tau_start + np.arange(num_of_points) * tau_step
-        tau_pspacing_start = self.tau_2_pulse_spacing(tau_start)
+        tau_pspacing_start = float(self.tau_2_pulse_spacing(tau_start))
 
         # create the elements
         waiting_element = self._get_idle_element(length=self.wait_time,
