@@ -57,7 +57,6 @@ class FollowLogic(LogicBase):
         self._current_pos = np.array([0.0, 0.0])
         self.__last_follow = None
         self.__follow_timer = QtCore.QTimer(parent=self)
-        self.__follow_timer.setInterval(int(round(1000 * self._min_step_interval)))
         self.__follow_timer.setSingleShot(True)
         self.__follow_timer.timeout.connect(self.__follow_loop_body, QtCore.Qt.QueuedConnection)
 
@@ -133,6 +132,6 @@ class FollowLogic(LogicBase):
 
             # Start single-shot timer to call this follow loop again after some wait time
             overhead = perf_counter() - now
-            self.__follow_timer.start(1000 * max(0, self._min_step_interval - overhead))
+            self.__follow_timer.start(int(round(1000 * max(0, self._min_step_interval - overhead))))
 
 
