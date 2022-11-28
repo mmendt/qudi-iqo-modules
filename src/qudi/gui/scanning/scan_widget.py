@@ -211,7 +211,8 @@ class Scan2DWidget(_BaseScanWidget):
 
         self.image_widget = RubberbandZoomSelectionImageWidget(allow_tracking_outside_data=True,
                                                                xy_region_selection_crosshair=True,
-                                                               xy_region_selection_handles=False)
+                                                               xy_region_selection_handles=False,
+                                                               xy_region_min_size_percentile=0.015)
         self.image_widget.set_selection_mutable(True)
         self.image_widget.add_region_selection(span=((-0.5, 0.5), (-0.5, 0.5)),
                                                mode=self.image_widget.SelectionMode.XY)
